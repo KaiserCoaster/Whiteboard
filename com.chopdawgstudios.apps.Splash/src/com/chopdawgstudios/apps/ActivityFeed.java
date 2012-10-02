@@ -27,12 +27,9 @@ public class ActivityFeed extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_menu);   
         
-        
-        new asyncCheck().execute();
-        
-             
+        new asyncCheck().execute();   
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -55,13 +52,13 @@ public class ActivityFeed extends Activity {
 			            JSONObject j = json.getJSONObject("data_" + i);
 						
 			            if(j.getInt("action") == 1) {
-			            	String[] element = {j.getString("display_name") + " " + getResources().getString(R.string.feed_comment), j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("id") + ""};
+			            	String[] element = {j.getString("display_name") + " " + getResources().getString(R.string.feed_comment), j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("num1") + ""};
 			            	listItems.add(element);
 			            } else if(j.getInt("action") == 3) {
-			            	String[] element = {j.getString("display_name") + " " + getResources().getString(R.string.feed_love), j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("id") + ""};
+			            	String[] element = {j.getString("display_name") + " " + getResources().getString(R.string.feed_love), j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("num1") + ""};
 			            	listItems.add(element);
 			        	} else {
-			            	String[] element = {j.getString("display_name") + " posted a " + j.getString("subject") + "." , j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("id") + ""};
+			            	String[] element = {j.getString("display_name") + " posted a " + j.getString("subject") + "." , j.getString("timestamp"), j.getString("display_name").toLowerCase() + "_sm", j.getInt("num1") + ""};
 			            	listItems.add(element);
 			            }
 			        } catch (JSONException e) {
@@ -74,14 +71,13 @@ public class ActivityFeed extends Activity {
 
 			return -1;
 		}
-		
+			
 		@Override
-		protected void onPostExecute(Integer result) {
-			super.onPostExecute(result);
-			list = (ListView) findViewById(R.id.list);
-	        
-	        String refresh[] = {"Refresh", "", ""};
-	        String back[] = {"Back", "", ""};
+		protected void onPreExecute() {
+			super.onPreExecute();
+			     
+	        String refresh[] = {"Refresh", "", "whitespace"};
+	        String back[] = {"Back", "", "whitespace"};
 	        getResources().getConfiguration();
 			if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 				refresh[2] = "refresh";
@@ -90,16 +86,20 @@ public class ActivityFeed extends Activity {
 
 	        listItems.add(back);
 	        listItems.add(refresh);
+		}
+		
+		@Override
+		protected void onPostExecute(Integer result) {
+			super.onPostExecute(result);
+			list = (ListView) findViewById(R.id.list);
 	        
-	        final ArrayAdapterSpecial<String> adapter = new ArrayAdapterSpecial<String>(activityFeed, R.layout.simple_list_custom_2, listItems);
-
-	        list.setOnItemClickListener(new OnItemClickListener() {
+			final ArrayAdapterSpecial<String> adapter = new ArrayAdapterSpecial<String>(activityFeed, R.layout.simple_list_custom_2, listItems);
+			list.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> arg0, final View arg1, int arg2, long arg3) {
 					if(listItems.get(arg2)[0] == "Back") {					
 						finish();
 					}
 					else if (listItems.get(arg2)[0] == "Refresh") {
-				        //setContentView(R.layout.login);
 						load();
 					}
 					else {					

@@ -29,7 +29,6 @@ public class PostFeed extends Activity {
         setContentView(R.layout.activity_menu);
         
         new asyncCheck().execute();
-     
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,22 +37,8 @@ public class PostFeed extends Activity {
     }
     
     void load() {
-		Thread delay = new Thread(){
-			public void run() {
-				try {
-					setContentView(R.layout.loading);
-					sleep(500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				} finally {
-					finish();
-					startActivity(getIntent());
-				}
-			}
-		};
-		
-		delay.run();
-		
+		finish();
+		startActivity(getIntent());
     }
     
     class asyncCheck extends AsyncTask<Integer, Integer, Integer> {
@@ -61,7 +46,8 @@ public class PostFeed extends Activity {
 		protected Integer doInBackground(Integer... params) {	
 			try {
 				JSONObject json = new JSONObject(new HTTP().get("http://apps.chopdawgstudios.com/whiteboard/androidGrab.php?mode=post_stream"));
-			    for(int i = 0; i < json.length(); i++) {
+			    
+				for(int i = 0; i < json.length(); i++) {
 			        try {
 			            JSONObject j = json.getJSONObject("data_" + i);
 						
@@ -88,12 +74,11 @@ public class PostFeed extends Activity {
 		}
 		
 		@Override
-		protected void onPostExecute(Integer result) {
-			super.onPostExecute(result);
-			list = (ListView) findViewById(R.id.list);
-	        
-	        String refresh[] = {"Refresh", "", ""};
-	        String back[] = {"Back", "", ""};
+		protected void onPreExecute() {
+			super.onPreExecute();
+			     
+	        String refresh[] = {"Refresh", "", "whitespace"};
+	        String back[] = {"Back", "", "whitespace"};
 	        getResources().getConfiguration();
 			if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 				refresh[2] = "refresh";
@@ -102,6 +87,13 @@ public class PostFeed extends Activity {
 
 	        listItems.add(back);
 	        listItems.add(refresh);
+		}
+		
+		@Override
+		protected void onPostExecute(Integer result) {
+			super.onPostExecute(result);
+			list = (ListView) findViewById(R.id.list);
+			
 			final ArrayAdapterSpecial<String> adapter = new ArrayAdapterSpecial<String>(postFeed, R.layout.simple_list_custom_2, listItems);
 			list.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> arg0, final View arg1, int arg2, long arg3) {

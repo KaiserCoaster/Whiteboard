@@ -18,8 +18,8 @@ public final class R {
     public static final class drawable {
         public static final int alterator1=0x7f020000;
         public static final int alterator2=0x7f020001;
-        public static final int altercolor1=0x7f020018;
-        public static final int altercolor2=0x7f020019;
+        public static final int altercolor1=0x7f020019;
+        public static final int altercolor2=0x7f02001a;
         public static final int back=0x7f020002;
         public static final int border=0x7f020003;
         public static final int brandon_sm=0x7f020004;
@@ -41,7 +41,8 @@ public final class R {
         public static final int sean_sm=0x7f020014;
         public static final int steve_sm=0x7f020015;
         public static final int tom_sm=0x7f020016;
-        public static final int transparent=0x7f020017;
+        public static final int transparent=0x7f020018;
+        public static final int whitespace=0x7f020017;
     }
     public static final class id {
         public static final int ImageView1=0x7f08000c;
