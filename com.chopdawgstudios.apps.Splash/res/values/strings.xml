@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">WhiteBoard</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_title">Directory</string>
+    <string name="total">Your Total is:</string>
+    <string name="feed_comment">posted a comment.</string>
+    <string name="feed_title">Activity Feed</string>
+	<string name="feed_love">loved a post.</string>
+    <string name="post_title">Post Feed</string>
+	<string name="url_title">URL</string>
+	<string name="login">Log In</string>
+	
+</resources>

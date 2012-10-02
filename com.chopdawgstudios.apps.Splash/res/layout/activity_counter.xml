@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+	
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/total"
+        android:textSize="40dp"
+        android:textColor="#ffffff"
+        android:id="@+id/signifier"
+        tools:context=".MainActivity" />
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/signifier"
+	    android:gravity="right"
+	    android:orientation="horizontal"
+	    android:padding="6dp"
+	    android:weightSum="2" >
+
+	    <Button
+	        android:id="@+id/buttonAdd"
+	        android:layout_width="0dip"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:paddingLeft="8dp"
+	        android:paddingRight="8dp"
+	        android:text="Add"
+	        tools:ignore="HardcodedText" />
+	    
+	   	<Button
+	        android:id="@+id/buttonSubtract"
+	        android:layout_width="0dip"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:paddingLeft="8dp"
+	        android:paddingRight="8dp"
+	        android:text="Subtract"
+	        tools:ignore="HardcodedText" />
+	</LinearLayout>
+
+</RelativeLayout>

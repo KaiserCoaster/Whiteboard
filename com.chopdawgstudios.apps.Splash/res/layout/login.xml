@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TwoLineListItem
+        android:id="@+id/twoLineListItem1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp" >
+
+        <EditText
+            android:id="@+id/userField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:ems="10"
+            android:hint="User"
+            android:layout_below="@+id/imageView1"
+            android:inputType="textEmailAddress"
+            android:scrollHorizontally="true"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/passwordField"
+            android:layout_alignRight="@+id/passwordField"
+            android:layout_below="@+id/passwordField"
+            android:text="Log In"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/userField"
+            android:layout_below="@+id/userField"
+            android:ellipsize="end"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:scrollHorizontally="true"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="30dp"
+            android:scaleType="center"
+            android:src="@drawable/drop"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/userField"
+            android:layout_alignLeft="@+id/imageView1"
+            android:layout_alignRight="@+id/imageView1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#bf0000" />
+
+    </TwoLineListItem>
+
+</LinearLayout>

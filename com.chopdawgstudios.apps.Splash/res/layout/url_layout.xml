@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/tools">
+
+	<TwoLineListItem
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/signifier"
+	    android:background="#232323"
+	    android:minHeight="?android:attr/listPreferredItemHeight"
+	    android:mode="twoLine"
+	    android:paddingBottom="2dip"
+	    android:paddingTop="2dip" >
+	    
+	    <ImageView
+	        android:id="@+id/URLImageView"
+	        android:layout_width="50dp"
+	        android:layout_height="50dp"
+	        android:layout_margin="6dip"
+	        android:background="@drawable/mike_sm"
+	        android:contentDescription="@string/app_name"
+	        android:scaleType="center" />
+
+	    <TextView
+	        android:id="@+id/URLTextView2"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/URLImageView"
+	        android:layout_alignParentRight="true"
+	        android:layout_toRightOf="@+id/URLImageView"
+	        android:paddingLeft="3dp"
+	        android:text="July 17th"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textColor="#cfcfcf"
+	        tools:ignore="HardcodedText" />
+
+	    <TextView
+	        android:id="@+id/URLTextView1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/URLTextView2"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignTop="@+id/URLImageView"
+	        android:paddingLeft="3dp"
+	        android:text="Mike Wermuth"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textColor="#cfcfcf"
+	        android:textSize="19dp"
+	        tools:ignore="HardcodedText" />
+
+	</TwoLineListItem>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="right"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:orientation="horizontal"
+	    android:padding="6dp"
+	    android:weightSum="2" >
+
+	    <Button
+	        android:id="@+id/backButton"
+	        android:layout_width="0dip"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:paddingLeft="8dp"
+	        android:paddingRight="8dp"
+	        android:text="Back"
+	        tools:ignore="HardcodedText" />
+	    
+	   	<Button
+	        android:id="@+id/pointLess"
+	        android:layout_width="0dip"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:paddingLeft="8dp"
+	        android:paddingRight="8dp"
+	        android:text="Comment"
+	        tools:ignore="HardcodedText" />
+	</LinearLayout>
+
+</LinearLayout>

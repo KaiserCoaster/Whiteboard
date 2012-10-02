@@ -1,0 +1,87 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chopdawgstudios.apps"
+    android:versionCode="1"
+    android:versionName="1.0" xmlns:tools="http://schemas.android.com/tools">
+	<uses-permission 
+	    android:name="android.permission.INTERNET" /> 
+    
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".Login"
+            android:label="@string/login" 
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.LOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+		</activity>
+        
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/menu_title" 
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.SPLASH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".CounterActivity"
+            android:label="@string/menu_title" 
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.DEBUG" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ActivityFeed"
+            android:label="@string/feed_title" 
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.FEED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".PostFeed"
+            android:label="@string/post_title" 
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.POSTFEED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+		<activity
+            android:name=".URLViewer"
+            android:label="@string/url_title" 
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.chopdawgstudios.apps.URLVIEWER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+		</activity>
+    </application>
+
+</manifest>
